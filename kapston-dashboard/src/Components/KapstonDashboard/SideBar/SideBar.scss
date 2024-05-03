@@ -1,0 +1,55 @@
+@import "../../Common/CssConstantsVariables.scss";
+
+.sidebar {
+  background: $dashboard-primary-color;
+  width: 76px;
+  height: 100%;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  .container-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .sidebar-top-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .actual-value {
+        height: 44px;
+        width: 44px;
+        box-sizing: border-box;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin: 8px 0px;
+
+        &:hover {
+          background: $seperator-color;
+        }
+      }
+    }
+    .sidebar-bottom-container {
+      @extend .sidebar-top-container;
+    }
+
+    .seperator {
+      padding: 0px;
+      margin: 0px;
+      color: $seperator-color;
+      border: 1px solid $seperator-color;
+    }
+  }
+}
+
+.sidebar.open {
+  width: 220px; /* Width when open */
+  transform: translateX(0); /* Move on-screen when open */
+}
