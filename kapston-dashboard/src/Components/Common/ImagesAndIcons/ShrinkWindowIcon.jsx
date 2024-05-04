@@ -2,7 +2,6 @@ import React from "react";
 
 function ShrinkWindowIcon(props) {
   const { rotate } = props;
-  console.log(rotate, "rotate");
   return (
     <svg
       width="14"

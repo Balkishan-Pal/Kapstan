@@ -52,10 +52,21 @@ export function customizeChartData(data) {
         const index = result.findIndex(obj => obj.name === name);
 
         if (index !== -1) {
-            result[index].data.push(Number(item.memoryUtilization));
+            result[index].data.push(Number(item.memoryUtilization || item?.cpuUtilization));
         }
     });
 
     return result;
 }
 
+export function formatTime(timestamp) {
+    const milliseconds = timestamp * 1000;
+    const date = new Date(milliseconds);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    const formattedTime = `${formattedHours}:${formattedMinutes} ${ampm}`;
+    return formattedTime;
+  }
