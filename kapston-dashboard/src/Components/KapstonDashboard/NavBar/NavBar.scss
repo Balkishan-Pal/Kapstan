@@ -1,0 +1,10 @@
+@import '../../Common/CssConstantsVariables.scss';
+
+$nav-bar-border-color: #EBEBEB;
+
+.navbar-top-wrapper{
+    height: 65px;
+    width:100%;
+    background-color: $nav-background-color;
+    border-bottom: 1px solid $nav-bar-border-color;
+}

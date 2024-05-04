@@ -21,8 +21,9 @@
       align-items: center;
 
       .actual-value {
+        font-size: 14px;
         height: 44px;
-        width: 44px;
+        width: fit-content;
         box-sizing: border-box;
         border-radius: 6px;
         display: flex;
@@ -30,10 +31,20 @@
         justify-content: center;
         box-sizing: border-box;
         margin: 8px 0px;
+        padding: 0px 16px;
+        color: $white;
+        gap: 12px;
+        transition: all 0.3s ease-in-out;
 
         &:hover {
           background: $seperator-color;
         }
+      }
+
+      .actual-value.active {
+        width: fit-content;
+        background: $seperator-color;
+        font-weight: 700;
       }
     }
     .sidebar-bottom-container {
@@ -50,6 +61,6 @@
 }
 
 .sidebar.open {
-  width: 220px; /* Width when open */
-  transform: translateX(0); /* Move on-screen when open */
+  width: 220px;
+  transform: translateX(0);
 }

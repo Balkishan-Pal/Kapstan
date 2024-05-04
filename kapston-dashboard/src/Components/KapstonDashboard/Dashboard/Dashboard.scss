@@ -1,3 +1,6 @@
+
+@import '../../Common/CssConstantsVariables.scss';
+
 .dashboard-container {
     display: flex;
     height: 100vh;
@@ -6,5 +9,4 @@
   
   .content-wrapper {
     flex: 1;
-    padding: 20px;
   }

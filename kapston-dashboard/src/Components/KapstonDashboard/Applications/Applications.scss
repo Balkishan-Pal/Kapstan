@@ -1,0 +1,29 @@
+@import "../../Common/CssConstantsVariables.scss";
+
+$heading-color: #000000;
+
+.application-top-wrapper {
+  padding: 12px 20px;
+
+  .primary-heading-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      color: $heading-color;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .more-option-wrapper {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      span {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

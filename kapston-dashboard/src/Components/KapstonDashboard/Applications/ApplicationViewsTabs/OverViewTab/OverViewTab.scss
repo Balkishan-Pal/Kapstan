@@ -1,0 +1,72 @@
+@import "../../../../Common/CssConstantsVariables.scss";
+
+$border-color: #ebebeb;
+$info-color: #333333;
+
+.overview-wrapper {
+  .sub-heading {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    color: $text-color-light;
+    margin: 0px;
+  }
+
+  .service-info-wrapper {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid $border-color;
+    background: $white;
+
+    .heading-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .heading {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 700;
+        color: $text-color-light;
+      }
+    }
+  }
+
+  .version-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+
+    .info-heading {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: $info-color;
+      margin: 0px;
+    }
+
+    .current-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .data-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
+
+    .deploy-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  .footer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

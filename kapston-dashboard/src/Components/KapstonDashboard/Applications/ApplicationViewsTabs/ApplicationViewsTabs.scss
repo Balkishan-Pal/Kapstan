@@ -1,0 +1,47 @@
+@import "../../../Common/CssConstantsVariables.scss";
+
+$active-color: #000000;
+
+.tabs-parent {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  .tabs-active {
+    font-size: 14px;
+    line-height: 20px;
+    display: grid;
+    font-weight: 700;
+    color: $active-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tabs-inactive {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    color: $text-color-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  section {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .dot-icon-wrap {
+    svg {
+      height: 6px;
+      width: 6px;
+      position: relative;
+      bottom: 6px;
+	  right: 2px;
+
+    }
+  }
+}

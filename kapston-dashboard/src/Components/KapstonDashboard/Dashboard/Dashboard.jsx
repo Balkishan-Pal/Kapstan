@@ -1,27 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
-import './Dashboard.css';
-import NavBar from '../NavBar/NavBar';
-import SideBar from '../SideBar/SideBar';
+import NavBar from "../NavBar/NavBar";
+import SideBar from "../SideBar/SideBar";
+import Applications from "../Applications/Applications";
+
+import "./Dashboard.scss";
 
 function Dashboard() {
-  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+  const [activeTab, setActiveTab] = useState("applications");
 
   const toggleSidebar = () => {
-    console.log('cliked')
     setIsSideBarOpen(!isSideBarOpen);
   };
 
-
   return (
-    <div className='dashboard-container'>
-      {/* <NavBar isSideBarOpen={isSideBarOpen} onToggle={toggleSidebar} /> */}
-      <SideBar isSideBarOpen={isSideBarOpen} onToggle={toggleSidebar}/>
-      <div className='content-wrapper'>
-        main content
+    <div className="dashboard-container">
+      <SideBar
+        activeTab={activeTab}
+        onToggle={toggleSidebar}
+        setActiveTab={setActiveTab}
+        isSideBarOpen={isSideBarOpen}
+      />
+
+      <div className="content-wrapper">
+        <NavBar isSideBarOpen={isSideBarOpen} onToggle={toggleSidebar} />
+        <Routes>
+          <Route path="/" element={<Applications />} />
+          <Route path="/applications" element={<Applications />} />
+        </Routes>
       </div>
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

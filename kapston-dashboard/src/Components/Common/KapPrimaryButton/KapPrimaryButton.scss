@@ -1,0 +1,14 @@
+@import '../CssConstantsVariables.scss';
+
+.kaps-primary-button{
+    background-color: $kaps-primary-button-color;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color:$white;
+    border: none;
+    transition: transform 0.2s; 
+
+}

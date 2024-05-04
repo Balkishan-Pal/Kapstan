@@ -7,77 +7,69 @@ import KapstanLogo from "../../Common/ImagesAndIcons/KapstanLogo";
 import SecurityIcon from "../../Common/ImagesAndIcons/SecurityIcon";
 import ShrinkWindowIcon from "../../Common/ImagesAndIcons/ShrinkWindowIcon";
 
-export const sideBarContants = [ 
-    
-     {  heading:'Kapstan',
-        icon: <KapstanLogo/> ,
-        Extentions: '',
-        positionStarts:'top',
-        seperatorPresent: true,
+export const sideBarContants = [
+  {
+    heading: "Kapstan",
+    icon: <KapstanLogo />,
+    Extentions: "",
+    positionStarts: "top",
+    seperatorPresent: true,
+    route: { available: false },
+  },
+  {
+    heading: "Applications",
+    icon: <ApplicationIcon />,
+    Extentions: "",
+    positionStarts: "top",
+    seperatorPresent: true,
+    route: { available: true, link: "/applications" },
+  },
+  {
+    heading: "Conections",
+    icon: <ConnectionIcon />,
+    Extentions: "",
+    positionStarts: "top",
+    seperatorPresent: false,
+    route: { available: false },
+  },
+  {
+    heading: "Cost",
+    icon: <CostIcon />,
+    Extentions: "",
+    positionStarts: "top",
+    seperatorPresent: false,
+    route: { available: false },
+  },
+  {
+    heading: "Security",
+    icon: <SecurityIcon />,
+    Extentions: "Beta",
+    positionStarts: "top",
+    seperatorPresent: true,
+    route: { available: false },
+  },
 
-    },
-    {
-        heading:'Applications',
-        icon: <ApplicationIcon/>,
-        Extentions: '',
-        positionStarts:'top',
-        seperatorPresent:true,
-
-    },
-    {
-        heading:'Conections',
-        icon: <ConnectionIcon/>,
-        Extentions: '',
-        positionStarts:'top',
-        seperatorPresent:false,
-
-
-    },
-    {
-        heading:'Cost',
-        icon: <CostIcon/>,
-        Extentions: '',
-        positionStarts:'top',
-        seperatorPresent:false,
-
-
-    },
-    {
-        heading:'Security',
-        icon:<SecurityIcon/>,
-        Extentions: 'Beta',
-        positionStarts:'top',
-        seperatorPresent:true,
-
-    },
-
-    {
-        heading:'Admin',
-        icon:<AdminIcon/>,
-        Extentions:'',
-        positionStarts:'bottom',
-
-    },
-    {
-        heading:'Docs',
-        icon:<DocsIcon/>,
-        Extentions:'',
-        positionStarts:'bottom',
-        seperatorPresent:true,
-
-        
-    },
-    {
-        heading:'',
-        icon:<ShrinkWindowIcon/>,
-        Extentions:'',
-        positionStarts:'bottom',
-        seperatorPresent:false,
-
-        
-    },
-    
-
-
-]
-
+  {
+    heading: "Admin",
+    icon: <AdminIcon />,
+    Extentions: "",
+    positionStarts: "bottom",
+    route: { available: false },
+  },
+  {
+    heading: "Docs",
+    icon: <DocsIcon />,
+    Extentions: "",
+    positionStarts: "bottom",
+    seperatorPresent: true,
+    route: { available: false },
+  },
+  {
+    heading: "",
+    icon: <ShrinkWindowIcon />,
+    Extentions: "",
+    positionStarts: "bottom",
+    seperatorPresent: false,
+    route: { available: false },
+  },
+];
