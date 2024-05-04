@@ -1,19 +1,28 @@
 @import "../../Common/CssConstantsVariables.scss";
 
 $heading-color: #000000;
+$background-color:#F8F8F8;
 
 .application-top-wrapper {
-  padding: 12px 20px;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: $background-color;
+  max-height: calc(100% - 100px);
+  overflow-y: auto;
 
   .primary-heading-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0px;
 
     h3 {
       color: $heading-color;
       font-size: 20px;
       line-height: 24px;
+      margin: 0px;
     }
 
     .more-option-wrapper {
@@ -26,4 +35,16 @@ $heading-color: #000000;
       }
     }
   }
+}
+
+
+
+
+.application-top-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.application-top-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -10,7 +10,7 @@ const statusEnums = {
 
 const StatusColorEnums = {
   success: "#00B88C",
-  inprogress: "F39C12",
+  inprogress: "#F39C12",
   failed: "#E91F04",
 };
 

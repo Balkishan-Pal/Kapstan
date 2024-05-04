@@ -1,13 +1,15 @@
 @import "../CssConstantsVariables.scss";
 
 .status-top-wrapper {
-  padding: 4px 7px;
+ 
+   padding:2px 5px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
+  width: fit-content;
 }
 
 .success {

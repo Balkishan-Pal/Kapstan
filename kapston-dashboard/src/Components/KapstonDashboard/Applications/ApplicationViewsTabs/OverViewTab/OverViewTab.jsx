@@ -3,13 +3,10 @@ import "./OverViewTab.scss";
 import ArrowUpIcon from "../../../../Common/ImagesAndIcons/ArrowUpIcon";
 import DoneStausIcon from "../../../../Common/ImagesAndIcons/DoneStausIcon";
 import KapPrimaryButton from "../../../../Common/KapPrimaryButton/KapPrimaryButton";
+import EventHistory from "./EventHistory/EventHistory";
 
 function OverViewTab() {
-
-  const handleDeploy =()=>{
-    console.log('clicked')
-  }
-
+  
 
   return (
     <div className="overview-wrapper">
@@ -36,12 +33,17 @@ function OverViewTab() {
         </div>
 
         <div className="footer-wrap">
-          <KapPrimaryButton buttonText='Deploy'  onClick = {handleDeploy}  />
+          <KapPrimaryButton buttonText="Deploy" />
           <p className="sub-heading">Last updated 5 hours ago</p>
         </div>
       </section>
 
-      <div></div>
+      <div className="metrics-wrapper">
+        <section className="system-metrics-wrap"></section>
+        <section className="history-wrap">
+          <EventHistory />
+        </section>
+      </div>
     </div>
   );
 }

@@ -3,7 +3,12 @@
 $border-color: #ebebeb;
 $info-color: #333333;
 
+
 .overview-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
   .sub-heading {
     font-size: 12px;
     line-height: 18px;
@@ -22,6 +27,7 @@ $info-color: #333333;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 12px;
 
       .heading {
         font-size: 16px;
@@ -34,8 +40,9 @@ $info-color: #333333;
 
   .version-wrapper {
     display: flex;
-    gap: 60px;
+    gap: 130px;
     align-items: center;
+    margin-bottom: 32px;
 
     .info-heading {
       font-size: 14px;
@@ -48,7 +55,8 @@ $info-color: #333333;
     .current-wrap {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
+      text-align: left;
 
       .data-wrap {
         display: flex;
@@ -60,7 +68,8 @@ $info-color: #333333;
     .deploy-wrap {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
+      text-align: left;
     }
   }
 
@@ -68,5 +77,35 @@ $info-color: #333333;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .metrics-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .system-metrics-wrap {
+    width: 50%;
+
+      border-radius: 8px;
+      padding: 24px;
+      background: $white;
+      border: 1px solid #ebebeb;
+      height: 396px;
+      box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.06),
+        1px 5px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .history-wrap {
+      width: 50%;
+      border-radius: 8px;
+      padding: 24px;
+      background: $white;
+      border: 1px solid #ebebeb;
+      height: 396px;
+      box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.06),
+        1px 5px 4px -1px rgba(0, 0, 0, 0.06);
+      
+    }
   }
 }
