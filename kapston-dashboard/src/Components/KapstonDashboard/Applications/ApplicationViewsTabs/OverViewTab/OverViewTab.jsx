@@ -4,9 +4,12 @@ import ArrowUpIcon from "../../../../Common/ImagesAndIcons/ArrowUpIcon";
 import DoneStausIcon from "../../../../Common/ImagesAndIcons/DoneStausIcon";
 import KapPrimaryButton from "../../../../Common/KapPrimaryButton/KapPrimaryButton";
 import EventHistory from "./EventHistory/EventHistory";
+import { converTimeToHumanReadableForm } from "../../../../Common/Utils/Utils";
 
-function OverViewTab() {
-  
+function OverViewTab(props) {
+  const { dataToShow } = props;
+
+
 
   return (
     <div className="overview-wrapper">
@@ -28,13 +31,18 @@ function OverViewTab() {
 
           <span className="deploy-wrap">
             <p className="sub-heading">Desired version</p>
-            <p className="info-heading">1.2.1</p>
+            <p className="info-heading">
+              {dataToShow?.[0] && dataToShow?.[0]?.desiredVersion}
+            </p>
           </span>
         </div>
 
         <div className="footer-wrap">
           <KapPrimaryButton buttonText="Deploy" />
-          <p className="sub-heading">Last updated 5 hours ago</p>
+          <p className="sub-heading">{`Last updated ${
+            dataToShow?.[0] &&
+            converTimeToHumanReadableForm(dataToShow?.[0]?.updatedAt * 1000)
+          }`}</p>
         </div>
       </section>
 

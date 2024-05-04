@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Applications.scss";
 import StatusComponent from "../../Common/StatausComponent/StatusComponent";
@@ -9,25 +9,39 @@ import EnvVariableTab from "./ApplicationViewsTabs/EnvVariableTab/EnvVariableTab
 import AlertTab from "./ApplicationViewsTabs/AlertTab/AlertTab";
 import HistoreTab from "./ApplicationViewsTabs/HistoryTab/HistoreTab";
 
-function Applications(props) {
-  const [applicatioActiveTab, setManualAuditactiveTab] = useState("Overview");
+const statusEnums = {
+  deployed: "Deployed",
+  uninstalled: "Uninstalled",
+};
 
-  console.log(applicatioActiveTab, "applicatioActiveTab");
+function Applications(props) {
+  const { applicationData, activeApplication } = props;
+  const [applicatioActiveTab, setManualAuditactiveTab] = useState("Overview");
+  const [dataToShow, setDataToShow] = useState([]);
 
   const tabsEnums = {
-    Overview: <OverViewTab />,
-    environmentVariables: <EnvVariableTab />,
-    Alerts: <AlertTab />,
-    eventHistory: <HistoreTab />,
+    Overview: <OverViewTab {...props} dataToShow={dataToShow} />,
+    environmentVariables: <EnvVariableTab {...props} />,
+    Alerts: <AlertTab {...props} />,
+    eventHistory: <HistoreTab {...props} />,
   };
+
+  useEffect(() => {
+    if (applicationData?.length > 0 && activeApplication) {
+      const dataToShow = applicationData.filter(
+        (data) => data.name === activeApplication
+      );
+      setDataToShow(dataToShow);
+    }
+  }, [applicationData, activeApplication]);
 
   return (
     <div className="application-top-wrapper">
       <div className="primary-heading-wrap">
-        <h3>tic-tac-toe</h3>
+        <h3>{dataToShow?.[0] && dataToShow?.[0]?.name}</h3>
         <div className="more-option-wrapper">
           <span>
-            <StatusComponent status="success" customName="Deployed" />
+            <StatusComponent status="success" customName={statusEnums[dataToShow?.[0]?.status] || 'Deployed'} />
           </span>
           <span>
             <MoreOptionsIcon />
@@ -37,6 +51,7 @@ function Applications(props) {
 
       <div>
         <ApplicationViewsTabs
+          {...props}
           applicatioActiveTab={applicatioActiveTab}
           setManualAuditactiveTab={setManualAuditactiveTab}
         />

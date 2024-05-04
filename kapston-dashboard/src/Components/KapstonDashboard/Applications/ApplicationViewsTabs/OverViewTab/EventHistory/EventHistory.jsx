@@ -1,37 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./EventHistory.scss";
 import StatusComponent from "../../../../../Common/StatausComponent/StatusComponent";
+import { fetchEvetHistoryData } from "./ApiEventHistory";
+import { converTimeToHumanReadableForm } from "../../../../../Common/Utils/Utils";
 
-const testData = [
-  {
-    event: "Deploy",
-    version: "1.2.1",
-    status: "inprogress",
-    time: "1 minutes ago",
-  },
-  { event: "Deploy", version: "1.2.1", status: "success", time: "5 hours ago" },
-
-  {
-    event: "Uninstall",
-    version: "1.2.1",
-    status: "failed",
-    time: "2 hours ago",
-  },
-  {
-    event: "Deploy",
-    version: "1.2.1",
-    status: "success",
-    time: "10 hours ago",
-  },
-  {
-    event: "Deploy",
-    version: "1.2.1",
-    status: "inprogress",
-    time: "10 hours ago",
-  },
-];
+const statusEnums = {
+  failed: "failed",
+  successful: "success",
+  in_progress: "inprogress",
+};
 
 function EventHistory() {
+  const [historyData, setHistoryData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await fetchEvetHistoryData();
+        setHistoryData(data);
+      } catch (error) {
+        setHistoryData([]);
+      }
+    }
+
+    fetchData();
+  }, []);
   return (
     <section className="event-history-wrapper">
       <h3 className="heading">Event History</h3>
@@ -43,22 +36,29 @@ function EventHistory() {
           <span>Status</span>
         </div>
         <div className="table-body-wrapper">
-          {testData?.map(
+          {historyData?.map(
             (historyInfo, index) =>
               index < 4 && (
                 <div className="table-row" key={index}>
                   <div>
                     <div>{historyInfo?.event}</div>
-                    <div className="event-time">{historyInfo?.time}</div>
+                    <div className="event-time">
+                      {historyInfo?.timestamp &&
+                        converTimeToHumanReadableForm(
+                          historyInfo?.timestamp * 1000
+                        )}
+                    </div>
                   </div>
                   <div>{historyInfo?.version}</div>
                   <div>
-                    <StatusComponent status={historyInfo?.status} />{" "}
+                    <StatusComponent
+                      status={statusEnums[historyInfo?.status]}
+                    />
                   </div>
                 </div>
               )
           )}
-          {testData?.length >= 4 && <p className="view-more">View more</p>}
+          {historyData?.length >= 4 && <p className="view-more">View more</p>}
         </div>
       </div>
     </section>
