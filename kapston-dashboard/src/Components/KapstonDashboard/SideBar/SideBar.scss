@@ -1,5 +1,6 @@
 @import "../../Common/CssConstantsVariables.scss";
 
+$beta-tag-color: #f3ecfe;
 .sidebar {
   background: $dashboard-primary-color;
   width: 76px;
@@ -17,21 +18,36 @@
 
     .sidebar-top-container {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      .p-wrap {
+        width: 160px;
+        margin: 0px;
+        padding: 0px;
+
+        > a {
+          width: auto;
+          display: flex;
+          justify-content: left;
+          text-decoration: none;
+        }
+      }
+      .p-wrap-without-width {
+        width: auto;
+        @extend .p-wrap;
+      }
 
       .actual-value {
         font-size: 14px;
         height: 44px;
         width: fit-content;
         box-sizing: border-box;
-        border-radius: 6px;
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
         margin: 8px 0px;
-        padding: 0px 16px;
+        padding: 0px 18px;
         color: $white;
         gap: 12px;
         transition: all 0.3s ease-in-out;
@@ -39,12 +55,14 @@
         &:hover {
           background: $seperator-color;
         }
+        z-index: 1;
       }
 
       .actual-value.active {
         width: fit-content;
         background: $seperator-color;
         font-weight: 700;
+        z-index: 1;
       }
     }
     .sidebar-bottom-container {
@@ -63,4 +81,29 @@
 .sidebar.open {
   width: 220px;
   transform: translateX(0);
+  z-index: 1;
+}
+
+.kapstan-styles {
+  font-size: 22px;
+  font-weight: 700;
+}
+.kapston-logo-style {
+  position: relative;
+  right: 16px;
+  &:hover {
+    background: transparent !important;
+  }
+  @extend .actual-value;
+}
+
+.beta-tag {
+  background-color: $kaps-primary-button-color;
+  padding: 3px 7px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: $beta-tag-color;
+  margin-left: 14px;
 }

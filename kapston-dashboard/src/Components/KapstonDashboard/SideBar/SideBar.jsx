@@ -4,33 +4,54 @@ import { Link } from "react-router-dom";
 import "./SideBar.scss";
 
 import { sideBarContants } from "./SideBarConstants";
+import ShrinkWindowIcon from "../../Common/ImagesAndIcons/ShrinkWindowIcon";
 
 function SideBar(props) {
-  const { isSideBarOpen, onToggle, setActiveTab, activeTab } = props;
-  console.log(activeTab, "activeTab");
+  const { isSideBarOpen, onToggle, activeTab } = props;
   return (
     <div className={`sidebar ${isSideBarOpen ? "open" : ""}`}>
       <div className="container-wrapper">
         <div>
           {sideBarContants?.map((sideCons, index) => (
             <div key={index}>
-              {console.log(sideCons, "sideCons")}
               {sideCons?.positionStarts === "top" && (
                 <div className="sidebar-top-container">
-                  <Link
-                    to={sideCons?.route?.available && sideCons?.route?.link}
+                  <p
+                    className={
+                      isSideBarOpen ? "p-wrap" : "p-wrap-without-width"
+                    }
                   >
-                    <span
-                      className={
-                        activeTab === sideCons.heading?.toLocaleLowerCase()
-                          ? "actual-value active"
-                          : "actual-value"
-                      }
+                    <Link
+                      to={sideCons?.route?.available && sideCons?.route?.link}
                     >
-                      <span>{sideCons?.icon}</span>
-                      {isSideBarOpen && <span>{sideCons?.heading}</span>}
-                    </span>
-                  </Link>
+                      <span
+                        className={
+                          activeTab === sideCons.heading?.toLocaleLowerCase() &&
+                          sideCons?.heading !== "Kapstan"
+                            ? "actual-value active"
+                            : sideCons?.heading === "Kapstan" && isSideBarOpen
+                            ? "kapston-logo-style"
+                            : "actual-value"
+                        }
+                      >
+                        <span>{sideCons?.icon}</span>
+                        {isSideBarOpen && (
+                          <span
+                            className={
+                              sideCons?.heading === "Kapstan"
+                                ? "kapstan-styles"
+                                : ""
+                            }
+                          >
+                            {sideCons?.heading}
+                            {sideCons?.heading === "Security" && (
+                              <span className="beta-tag">Beta</span>
+                            )}
+                          </span>
+                        )}
+                      </span>
+                    </Link>
+                  </p>
                 </div>
               )}
               {sideCons?.seperatorPresent &&
@@ -46,21 +67,33 @@ function SideBar(props) {
             <div key={index}>
               {sideCons?.positionStarts === "bottom" && (
                 <div className="sidebar-bottom-container">
-                  <Link
-                    to={sideCons?.route?.available && sideCons?.route?.link}
+                  <p
+                    className={
+                      isSideBarOpen ? "p-wrap" : "p-wrap-without-width"
+                    }
                   >
-                    <span
-                      onClick={sideCons?.heading === "" ? onToggle : ""}
-                      className={
-                        activeTab === sideCons.heading?.toLocaleLowerCase()
-                          ? "actual-value active"
-                          : "actual-value"
-                      }
+                    <Link
+                      to={sideCons?.route?.available && sideCons?.route?.link}
                     >
-                      <span>{sideCons?.icon}</span>
-                      {isSideBarOpen && <span>{sideCons?.heading}</span>}
-                    </span>
-                  </Link>
+                      <span
+                        onClick={sideCons?.heading === "" ? onToggle : ""}
+                        className={
+                          activeTab === sideCons.heading?.toLocaleLowerCase()
+                            ? "actual-value active"
+                            : "actual-value"
+                        }
+                      >
+                        <span>
+                          {sideCons?.heading === "" && !isSideBarOpen ? (
+                            <ShrinkWindowIcon rotate="180" />
+                          ) : (
+                            sideCons?.icon
+                          )}
+                        </span>
+                        {isSideBarOpen && <span>{sideCons?.heading}</span>}
+                      </span>
+                    </Link>
+                  </p>
                 </div>
               )}
               {sideCons?.seperatorPresent &&

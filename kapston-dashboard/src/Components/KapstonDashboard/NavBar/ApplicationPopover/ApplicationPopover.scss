@@ -1,0 +1,48 @@
+
+@import '../../../Common/CssConstantsVariables.scss';
+
+.applications-button{
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    color: $text-color-normal;
+    background: none;
+    border: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+
+    >svg{
+        position: relative;
+        top: 1px;
+    }
+    cursor: pointer;
+  
+
+}
+
+
+.application-content-wrap{
+    cursor: pointer;
+    padding: 8px;
+    background: $nav-background-color ;
+
+
+    .content{
+        padding: 6px;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+        border-radius: 4px;
+
+        &:hover{
+            background: white;
+        }
+    }
+
+
+    
+}

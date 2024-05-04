@@ -47,6 +47,8 @@ function Dashboard() {
           onToggle={toggleSidebar}
           activeApplication={activeApplication}
           setActiveApplication={setActiveApplication}
+          applicationData={applicationData}
+
         />
         <Routes>
           <Route
@@ -64,6 +66,7 @@ function Dashboard() {
               <Applications
                 applicationData={applicationData}
                 activeApplication={activeApplication}
+                setActiveApplication={setActiveApplication}
               />
             }
           />

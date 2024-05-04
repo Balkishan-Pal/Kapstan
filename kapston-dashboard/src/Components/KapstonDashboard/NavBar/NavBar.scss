@@ -1,10 +1,63 @@
-@import '../../Common/CssConstantsVariables.scss';
+@import "../../Common/CssConstantsVariables.scss";
 
-$nav-bar-border-color: #EBEBEB;
+$name-initial-color: #ffd07b;
 
-.navbar-top-wrapper{
-    height: 65px;
-    width:100%;
-    background-color: $nav-background-color;
-    border-bottom: 1px solid $nav-bar-border-color;
+.navbar-top-wrapper {
+  height: 65px;
+  width: 100%;
+  background-color: $nav-background-color;
+  border-bottom: 1px solid $border-color;
+  padding: 16px 32px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .applications-wrap{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    .heading {
+        color: $text-color-light;
+        line-height: 16px;
+        font-weight: 500;
+        font-size: 10px;
+      }
+
+  }
+
+
+  .user-info-wrap {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .name-initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: $name-initial-color;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 28px;
+      color: $white;
+    }
+    .name{
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: $text-color-normal;
+
+    }
+    .arrow-wrap{
+        margin-left: 8px;
+        position: relative;
+        bottom: 2px;
+    }
+  }
 }

@@ -1,6 +1,8 @@
 import React from "react";
 
-function ShrinkWindowIcon() {
+function ShrinkWindowIcon(props) {
+  const { rotate } = props;
+  console.log(rotate, "rotate");
   return (
     <svg
       width="14"
@@ -8,6 +10,7 @@ function ShrinkWindowIcon() {
       viewBox="0 0 14 10"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      transform={`rotate(${rotate ? rotate : 0})`}
     >
       <path
         fill-rule="evenodd"
