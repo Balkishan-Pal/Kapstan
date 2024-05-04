@@ -1,0 +1,58 @@
+@import "../../../../../Common/CssConstantsVariables.scss";
+
+$border-bottom:#BDBDBD;
+
+.system-metrics-wrapper {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  h3 {
+    margin: 0px;
+    text-align: left;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: $text-color-light;
+  }
+
+  .cpu-memory-tab{
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    // justify-content: space-evenly;
+    .tabs{
+        width: 50%;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: $text-color-light;
+        border-bottom: 1px solid $border-bottom;
+        cursor: pointer;    
+        padding: 8px;
+
+    }
+    .active-tabs-2{
+        border-bottom: 2px solid $kaps-primary-button-color;
+    }
+
+  }
+  .sub-heading-wrap{
+    color: $text-color-normal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    display: flex;
+    margin-left: 8px;
+}
+
+  .metrix-wrap{
+    height: 270px;
+  }
+
+}

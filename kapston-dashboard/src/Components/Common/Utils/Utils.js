@@ -1,5 +1,7 @@
 
 
+
+// to covert timeStamp into human readable form(5hours ago)
 export function converTimeToHumanReadableForm(timestamp) {
     const now = Date.now();
     const secondsPast = (now - timestamp) / 1000;
@@ -21,4 +23,39 @@ export function converTimeToHumanReadableForm(timestamp) {
     }
 }
 
+
+// to customeze data for highcharts
+export function customizeChartData(data) {
+    const result = [
+        { name: 'tic-tac-toe', data: [] },
+        { name: 'sudoku', data: [] },
+        { name: 'chess', data: [] },
+    
+    ];
+
+    data.forEach(item => {
+        let name;
+        switch (item.applicationId) {
+            case '1':
+                name = 'tic-tac-toe';
+                break;
+            case '2':
+                name = 'sudoku';
+                break;
+            case '3':
+                name = 'chess';
+                break;
+            default:
+                name = 'Unknown';
+        }
+
+        const index = result.findIndex(obj => obj.name === name);
+
+        if (index !== -1) {
+            result[index].data.push(Number(item.memoryUtilization));
+        }
+    });
+
+    return result;
+}
 

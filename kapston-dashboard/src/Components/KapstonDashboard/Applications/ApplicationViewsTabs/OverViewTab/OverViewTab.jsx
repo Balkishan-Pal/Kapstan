@@ -5,6 +5,7 @@ import DoneStausIcon from "../../../../Common/ImagesAndIcons/DoneStausIcon";
 import KapPrimaryButton from "../../../../Common/KapPrimaryButton/KapPrimaryButton";
 import EventHistory from "./EventHistory/EventHistory";
 import { converTimeToHumanReadableForm } from "../../../../Common/Utils/Utils";
+import SystemMatrix from "./SystemMatrix/SystemMatrix";
 
 function OverViewTab(props) {
   const { dataToShow } = props;
@@ -47,7 +48,9 @@ function OverViewTab(props) {
       </section>
 
       <div className="metrics-wrapper">
-        <section className="system-metrics-wrap"></section>
+        <section className="system-metrics-wrap">
+          <SystemMatrix/>
+        </section>
         <section className="history-wrap">
           <EventHistory />
         </section>
