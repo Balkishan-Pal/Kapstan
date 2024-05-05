@@ -11,4 +11,8 @@
     border: none;
     transition: transform 0.2s; 
 
+    &:disabled{
+        cursor: not-allowed;
+    }
+
 }

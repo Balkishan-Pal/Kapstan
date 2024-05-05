@@ -42,7 +42,7 @@ export default function DrawerEnv(props) {
           }}
 
       >
-       <DrawerContent/>
+       <DrawerContent {...props}/>
       </Drawer>
     </div>
   );

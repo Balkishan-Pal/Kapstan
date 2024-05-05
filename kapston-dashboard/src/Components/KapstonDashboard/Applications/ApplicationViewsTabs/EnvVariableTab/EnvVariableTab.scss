@@ -40,54 +40,57 @@
     }
   }
 
-
-  .data-to-show-wrapper{
+  .data-to-show-wrapper {
     height: 100%;
     overflow-y: auto;
 
     .info-not-present {
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 20px;
-        color: $text-color-light;
-        text-align: left;
-      }
-      .info-present-list-env {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      color: $text-color-light;
+      text-align: left;
+    }
+    .info-present-list-env {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .particular-line {
+        width: 60%;
         display: flex;
-        flex-direction: column;
-        gap: 12px;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        padding: 12px;
+        align-items: center;
+        box-sizing: border-box;
+        align-items: center;
 
-        .particular-line{
-            width: 60%;
-            display: flex;
-            border: 1px solid $border-color;
-            border-radius: 8px;
-            padding: 12px;
-            align-items: center;
-            box-sizing: border-box;
-            align-items: center;
-
-            :nth-child(1){
-                text-align: left;
-                flex: 2;
-            }
-            :nth-child(2){
-                flex: 3;
-               text-align: left;
-
-
-            }
-            :nth-child(3){
-                flex: 1;
-                flex-shrink: 0;
-                text-align: right;
-                cursor: pointer;
-
-            }
-
+        .box1 {
+          text-align: left;
+          width: 280px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-right: 10px;
+          box-sizing: border-box;
+        }
+        .box2 {
+          text-align: left;
+          width: 340px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding-right: 10px;
+          box-sizing: border-box;
+        }
+        .box3 {
+      width: 30px;
+        
+          text-align: right;
+          cursor: pointer;
         }
       }
-
+    }
   }
-
 }

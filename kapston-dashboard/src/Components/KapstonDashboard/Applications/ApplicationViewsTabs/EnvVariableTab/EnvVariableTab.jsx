@@ -1,29 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./EnvVariableTab.scss";
 import AddIcon from "../../../../Common/ImagesAndIcons/AddIcon";
 import DownLoadIcon from "../../../../Common/ImagesAndIcons/DownLoadIcon";
 import DeleteIcon from "../../../../Common/ImagesAndIcons/DeleteIcon";
 import DrawerEnv from "./DrawerEnv/DrawerEnv";
 
-const testData = [{ abc: "123" }, { def: "456" }, { ghi: "789" }];
-
 function EnvVariableTab() {
-  const [envVariableList, setEnvVariableList] = useState(testData);
-  const [openDrawer,setOpenDrawer] = useState(false);
+  const [envVariableList, setEnvVariableList] = useState({});
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [refreshPageAfterClosing,setResfreshPageAfterClosing] = useState(false)
 
-  const closeDrawer = ()=>{
-    setOpenDrawer(false)
-  }
-const handleOpenDrawer = ()=>{
-  setOpenDrawer(true)
+  const closeDrawer = () => {
+    setOpenDrawer(false);
+  };
+  const handleOpenDrawer = () => {
+    setOpenDrawer(true);
+  };
 
-}
+  useEffect(() => {
+    const storedEnvVariables = localStorage.getItem("envVariables");
+    if (storedEnvVariables) {
+      setEnvVariableList(JSON.parse(storedEnvVariables));
+    }
+  }, [refreshPageAfterClosing]);
+
+  const handleDeleteEntry = (key) => {
+    const updatedEnvVariableList = { ...envVariableList };
+    delete updatedEnvVariableList[key];
+    setEnvVariableList(updatedEnvVariableList);
+    localStorage.setItem("envVariables", JSON.stringify(updatedEnvVariableList));
+  };
+
+
   return (
     <div className="environ-top-wrapper">
       <div className="heading-wrapper-env-variable">
         <h3>Environment File Details</h3>
         <span className="btn-wrapper-env">
-          <button type="button" onClick={handleOpenDrawer} >
+          <button type="button" onClick={handleOpenDrawer}>
             <AddIcon />
           </button>
           <button type="button">
@@ -33,34 +47,26 @@ const handleOpenDrawer = ()=>{
       </div>
 
       <div className="data-to-show-wrapper">
-        {envVariableList?.length === 0 ? (
+        {Object.keys(envVariableList).length === 0 ? (
           <div className="info-not-present">
             No environment variable created.
           </div>
         ) : (
           <div className="info-present-list-env">
-            {envVariableList?.map((envData, index) => (
-              <div className="particular-line" key={index}>
-                {Object.entries(envData).map(([key, value]) => (
-                  <React.Fragment key={key}>
-                    <div>{key}</div>
-                    <div>{value}</div>
-                    <div><DeleteIcon/></div>
-                  </React.Fragment>
-                ))}
+            {Object?.entries(envVariableList)?.map(([key, value]) => (
+              <div className="particular-line" key={key}>
+                <div className="box1">{key}</div>
+                <div className="box2">{value}</div>
+                <div className="box3" onClick={() => handleDeleteEntry(key)}>
+                  <DeleteIcon />
+                </div>
               </div>
             ))}
           </div>
         )}
       </div>
 
-     {
-      openDrawer && (
-        <DrawerEnv open ={openDrawer}  handleClose = {closeDrawer}/>
-       
-      )
-     }
-
+      {openDrawer && <DrawerEnv open={openDrawer} handleClose={closeDrawer} setResfreshPageAfterClosing={setResfreshPageAfterClosing} />}
     </div>
   );
 }
