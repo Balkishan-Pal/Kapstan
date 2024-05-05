@@ -1,0 +1,58 @@
+@import '../../../../../Common/CssConstantsVariables.scss';
+
+.drawer-content{
+    height: 100%;
+    padding: 40px 32px; 
+
+
+    .drop-wrapper{
+        width: 100%;
+        height: 200px;
+        box-sizing: border-box;
+        border-radius: 8px;
+        border: 1px solid $border-color;
+        padding: 12px;
+        
+
+        .actual-drop-n-click-wrap{
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px dotted #BDBDBD;
+            height: 80px;
+            background-color: #F8F8F8;
+
+            .text-content-inside-drop{
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 20px;
+                color: $text-color-normal ;
+            
+
+            }
+
+        }
+
+    }
+
+    .sub-heading-env-info{
+       font-size: 12px;
+       font-weight: 500;
+       line-height: 18px;
+       color: $text-color-light; 
+       margin-top: 4px;
+       margin-bottom: 24px;
+    }
+
+    .footer-env-wrap{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 8px;
+        align-items: center;
+
+    }
+}

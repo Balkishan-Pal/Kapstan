@@ -1,1 +1,93 @@
 @import "../../../../Common/CssConstantsVariables.scss";
+
+.environ-top-wrapper {
+  height: 360px;
+  width: 100%;
+  background-color: $white;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .heading-wrapper-env-variable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      margin: 0px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      color: $text-color-light;
+    }
+
+    .btn-wrapper-env {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      button {
+        border: none;
+        padding: 0px;
+        margin: 0px;
+        background: none;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  .data-to-show-wrapper{
+    height: 100%;
+    overflow-y: auto;
+
+    .info-not-present {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: $text-color-light;
+        text-align: left;
+      }
+      .info-present-list-env {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .particular-line{
+            width: 60%;
+            display: flex;
+            border: 1px solid $border-color;
+            border-radius: 8px;
+            padding: 12px;
+            align-items: center;
+            box-sizing: border-box;
+            align-items: center;
+
+            :nth-child(1){
+                text-align: left;
+                flex: 2;
+            }
+            :nth-child(2){
+                flex: 3;
+               text-align: left;
+
+
+            }
+            :nth-child(3){
+                flex: 1;
+                flex-shrink: 0;
+                text-align: right;
+                cursor: pointer;
+
+            }
+
+        }
+      }
+
+  }
+
+}
